@@ -235,21 +235,23 @@ console.log(duplicates([1, 16, 17, 19, 17, 1, 20, 22, 1]));
 // h. Rotate an array by k times
 // Anonymous Function
 
-const rotate = function (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    arr.push(arr.shift());
-    console.log(arr);
+const rotate = function (arr,k) {
+  k = k % arr.length;
+  for (let i = 0; i < k ; i++) {
+    arr.unshift(arr.pop());
   }
+  console.log(arr);
 };
-rotate([1, 2, 3, 4, 5]);
+rotate([1, 2, 3, 4, 5],2);
 
 //IIFE Function
 
-(function (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    arr.push(arr.shift());
-    console.log(arr);
+(function (arr,k) {
+  k = k % arr.length;
+  for (let i = 0; i < k ; i++) {
+    arr.unshift(arr.pop());
   }
-})([1, 2, 3, 4, 5]);
+  console.log(arr);
+})([1, 2, 3, 4, 5],3);
 
 //-------------------------------------------------------------------------------
